@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+var cardList = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-anchor', 'fa-leaf', 'fa-bicycle', 'fa-diamond', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-paper-plane-o', 'fa-cube'];
 
 /*
  * Display the cards on the page
@@ -9,6 +9,23 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ function gameSetup() {
+   var cards = shuffle(cardList);
+   var deck = document.querySelector(".deck");
+
+   for (var i = 0; i < cards.length; i++) {
+    var card = document.createElement("li");
+    card.classList.add("card");
+
+    var cardIcon = document.createElement("i");
+    cardIcon.classList.add("fa", cards[i]);
+
+    card.append(cardIcon);
+    deck.append(card);
+   }
+ }
+
+gameSetup();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -24,7 +41,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
