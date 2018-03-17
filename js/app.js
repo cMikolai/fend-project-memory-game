@@ -3,6 +3,8 @@
  */
 var cardList = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-anchor', 'fa-leaf', 'fa-bicycle', 'fa-diamond', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-paper-plane-o', 'fa-cube'];
 
+var openCards = [ ];
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -59,6 +61,9 @@ function startGame() {
   for (var i = 0; i < clickedCard.length; i++) {
     clickedCard[i].addEventListener("click", function( event ) {
         this.classList.add("open", "show");
+
+        openCards.push(this.firstChild);
+        console.log(openCards);
     }, false);
   }
 }
