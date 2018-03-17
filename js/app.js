@@ -52,3 +52,15 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+function startGame() {
+  var clickedCard = document.querySelectorAll("li.card");
+
+  console.log(clickedCard);
+  for (var i = 0; i < clickedCard.length; i++) {
+    clickedCard[i].addEventListener("click", function( event ) {
+        this.classList.add("open", "show");
+    }, false);
+  }
+}
+
+startGame();
