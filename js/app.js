@@ -3,6 +3,8 @@
  */
 var cardList = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-anchor', 'fa-leaf', 'fa-bicycle', 'fa-diamond', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-paper-plane-o', 'fa-cube'];
 
+var deck = document.querySelector(".deck");
+
 var openCards = [];
 
 var matchedCards = [];
@@ -16,7 +18,6 @@ var matchedCards = [];
  function gameSetup() {
 
    var cards = shuffle(cardList);
-   var deck = document.querySelector(".deck");
 
    for (var i = 0; i < cards.length; i++) {
     var card = document.createElement("li");
@@ -28,6 +29,8 @@ var matchedCards = [];
     card.append(cardIcon);
     deck.append(card);
    }
+
+   startGame();
  }
 
 gameSetup();
@@ -71,8 +74,6 @@ function startGame() {
   }
 }
 
-startGame();
-
 function matchCards() {
     if (openCards.length === 2) {
        if (openCards[0] === openCards[1]) {
@@ -94,3 +95,16 @@ function matchCards() {
       }
     }
 }
+
+function repeat() {
+  var faRepeat = document.querySelector(".fa-repeat");
+  faRepeat.addEventListener("click", function( event ) {
+    for (var i = 0; i < cardList.length; i++) {
+      var oldCards = document.querySelector(".card");
+      deck.removeChild(oldCards);
+    }
+    gameSetup();
+  }, false);
+}
+
+repeat();
