@@ -9,6 +9,9 @@ var openCards = [];
 
 var matchedCards = [];
 
+var moves = document.querySelector(".moves");
+var moveCount = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -32,8 +35,6 @@ var matchedCards = [];
 
    startGame();
  }
-
-gameSetup();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -76,14 +77,16 @@ function startGame() {
 
 function matchCards() {
     if (openCards.length === 2) {
-       if (openCards[0] === openCards[1]) {
-        matchedCards.push(openCards[0]);
-        matchedCards.push(openCards[1]);
-        var matchedCard = document.querySelectorAll(".open");
-        for (var i = 0; i < matchedCards.length; i++) {
-          matchedCard[i].classList.add("match");
-          openCards.pop();
-        }
+      moveCount++;
+      moves.innerHTML = moveCount;
+        if (openCards[0] === openCards[1]) {
+          matchedCards.push(openCards[0]);
+          matchedCards.push(openCards[1]);
+          var matchedCard = document.querySelectorAll(".open");
+          for (var i = 0; i < matchedCards.length; i++) {
+            matchedCard[i].classList.add("match");
+            openCards.pop();
+          }
       } else {
           var unMatchedCard = document.querySelectorAll(".open");
           setTimeout(function () {
@@ -99,6 +102,8 @@ function matchCards() {
 function repeat() {
   var faRepeat = document.querySelector(".fa-repeat");
   faRepeat.addEventListener("click", function( event ) {
+    moveCount = 0;
+    moves.innerHTML = moveCount;
     for (var i = 0; i < cardList.length; i++) {
       var oldCards = document.querySelector(".card");
       deck.removeChild(oldCards);
@@ -107,4 +112,7 @@ function repeat() {
   }, false);
 }
 
+moves.append(moveCount);
+
 repeat();
+gameSetup();
