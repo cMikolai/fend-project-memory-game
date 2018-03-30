@@ -85,6 +85,7 @@ function matchCards() {
           var matchedCard = document.querySelectorAll(".open");
           for (var i = 0; i < matchedCards.length; i++) {
             matchedCard[i].classList.add("match");
+            matchedCard[i].classList.remove("open", "show");
             openCards.pop();
           }
       } else {
