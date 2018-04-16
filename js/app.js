@@ -12,6 +12,9 @@ var matchedCards = [];
 var moves = document.querySelector(".moves");
 var moveCount = 0;
 
+var timer = document.querySelector(".timer-seconds");
+var timeCount = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -34,6 +37,7 @@ var moveCount = 0;
    }
 
    startGame();
+   setDate();
  }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -100,11 +104,24 @@ function matchCards() {
     }
 }
 
+function setDate() {
+  const timerSeconds = document.querySelector('.timer-seconds');
+  var now = new Date();
+
+  var seconds = now.getSeconds();
+  var secondsCount = ((seconds / 60) * 360) + 90;
+  timerSeconds.innerHTML = timeCount++;
+}
+
+setInterval(setDate, 1000);
+
+
 function repeat() {
   var faRepeat = document.querySelector(".fa-repeat");
   faRepeat.addEventListener("click", function( event ) {
     moveCount = 0;
     moves.innerHTML = moveCount;
+    timeCount = 0;
     for (var i = 0; i < cardList.length; i++) {
       var oldCards = document.querySelector(".card");
       deck.removeChild(oldCards);
@@ -114,6 +131,7 @@ function repeat() {
 }
 
 moves.append(moveCount);
+timer.append(timeCount);
 
 repeat();
 gameSetup();
