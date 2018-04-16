@@ -88,7 +88,8 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    /* width: 345px; */
+    width: 500px;
     margin-bottom: 10px;
 }
 
@@ -108,3 +109,22 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+/*
+ * Styles for the overlay
+ */
+
+ .overlay {
+   background-color: #00000073;
+   color: #fff;
+   padding: 5px 15px;
+   border-radius: 5px;
+   position: absolute;
+   margin: 0 auto;
+   z-index: 100;
+   display: none;
+ }
+
+ .overlay-heading {
+   text-align: center;
+ }
