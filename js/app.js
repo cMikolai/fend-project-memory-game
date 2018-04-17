@@ -67,6 +67,7 @@ function shuffle(array) {
  */
 function startGame() {
   var clickedCard = document.querySelectorAll("li.card");
+  matchedCards = [];
 
   for (var i = 0; i < clickedCard.length; i++) {
     clickedCard[i].addEventListener("click", function( event ) {
@@ -159,13 +160,11 @@ function repeat() {
 
 function endGame() {
   if (matchedCards.length === 16) {
-      deck.addEventListener("click", function( event ) {
         document.querySelector(".overlay").style.display ="initial";
         moveScore = document.querySelector(".moves-overlay");
         moveScore.innerHTML = moveCount;
         var timerOverlay = document.querySelector(".timer-seconds-overlay");
         timerOverlay.innerHTML = timeCount;
-      }, false);
   }
 }
 
