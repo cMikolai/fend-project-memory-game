@@ -75,6 +75,7 @@ function startGame() {
         openCards.push(this.firstChild.getAttribute('class'));
 
         matchCards();
+        starRating();
     }, false);
   }
 
@@ -120,6 +121,21 @@ function startTimer() {
   timerSeconds.innerHTML = timeCount++;
 }
 
+function starRating() {
+  if (moveCount === 20) {
+    document.querySelector(".third-star").style.display ="none";
+    document.querySelector(".third-star2").style.display ="none";
+  } else if (moveCount === 30) {
+    document.querySelector(".second-star").style.display ="none";
+    document.querySelector(".second-star2").style.display ="none";
+  } else if (moveCount === 40) {
+    document.querySelector(".first-star").style.display ="none";
+    document.querySelector(".first-star2").style.display ="none";
+  }
+
+  // display none/initial
+}
+
 function repeat() {
   var faRepeat = document.querySelector(".fa-repeat");
   faRepeat.addEventListener("click", function( event ) {
@@ -127,6 +143,12 @@ function repeat() {
     moves.innerHTML = moveCount;
     timeCount = 0;
     document.querySelector(".overlay").style.display ="none";
+    document.querySelector(".first-star").style.display ="initial";
+    document.querySelector(".first-star2").style.display ="initial";
+    document.querySelector(".second-star").style.display ="initial";
+    document.querySelector(".second-star2").style.display ="initial";
+    document.querySelector(".third-star").style.display ="initial";
+    document.querySelector(".third-star2").style.display ="initial";
     for (var i = 0; i < cardList.length; i++) {
       var oldCards = document.querySelector(".card");
       deck.removeChild(oldCards);
