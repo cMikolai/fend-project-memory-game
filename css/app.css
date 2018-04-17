@@ -130,6 +130,20 @@ h1 {
    display: none;
  }
 
+ .overlay-outer {
+   text-align: center;
+   line-height: 2em;
+ }
+
+ .score-panel-overlay {
+   text-align: center;
+ }
+
  .overlay-heading {
    text-align: center;
+ }
+
+ .moves-overlay,
+ .timer-seconds-overlay {
+   width: 100%;
  }
