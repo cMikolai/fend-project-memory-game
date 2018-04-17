@@ -11,9 +11,11 @@ var matchedCards = [];
 
 var moves = document.querySelector(".moves");
 var moveCount = 0;
+moves.append(moveCount);
 
 var timer = document.querySelector(".timer-seconds");
 var timeCount = 0;
+timer.append(timeCount);
 
 /*
  * Display the cards on the page
@@ -139,9 +141,6 @@ function endGame() {
       }, false);
   }
 }
-
-moves.append(moveCount);
-timer.append(timeCount);
 
 repeat();
 gameSetup();
