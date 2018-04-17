@@ -140,6 +140,11 @@ function endGame() {
         document.querySelector(".overlay").style.display ="initial";
       }, false);
   }
+
+   moves = document.querySelector(".moves-overlay");
+   moves.innerHTML = moveCount;
+   var timerOverlay = document.querySelector(".timer-seconds-overlay");
+   timerOverlay.innerHTML = timeCount;
 }
 
 repeat();
