@@ -126,6 +126,7 @@ function repeat() {
     moveCount = 0;
     moves.innerHTML = moveCount;
     timeCount = 0;
+    document.querySelector(".overlay").style.display ="none";
     for (var i = 0; i < cardList.length; i++) {
       var oldCards = document.querySelector(".card");
       deck.removeChild(oldCards);
@@ -138,13 +139,12 @@ function endGame() {
   if (matchedCards.length === 16) {
       deck.addEventListener("click", function( event ) {
         document.querySelector(".overlay").style.display ="initial";
+        moveScore = document.querySelector(".moves-overlay");
+        moveScore.innerHTML = moveCount;
+        var timerOverlay = document.querySelector(".timer-seconds-overlay");
+        timerOverlay.innerHTML = timeCount;
       }, false);
   }
-
-   moves = document.querySelector(".moves-overlay");
-   moves.innerHTML = moveCount;
-   var timerOverlay = document.querySelector(".timer-seconds-overlay");
-   timerOverlay.innerHTML = timeCount;
 }
 
 repeat();
