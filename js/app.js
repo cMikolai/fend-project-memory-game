@@ -94,6 +94,8 @@ function matchCards() {
             matchedCard[i].classList.add("match");
             matchedCard[i].classList.remove("open", "show");
             openCards.pop();
+
+            endGame();
           }
       } else {
           var unMatchedCard = document.querySelectorAll(".open");
@@ -128,6 +130,14 @@ function repeat() {
     }
     gameSetup();
   }, false);
+}
+
+function endGame() {
+  if (matchedCards.length === 16) {
+      deck.addEventListener("click", function( event ) {
+        document.querySelector(".overlay").style.display ="initial";
+      }, false);
+  }
 }
 
 moves.append(moveCount);
