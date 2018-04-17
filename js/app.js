@@ -35,9 +35,7 @@ var timeCount = 0;
     card.append(cardIcon);
     deck.append(card);
    }
-
    startGame();
-   setDate();
  }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -77,6 +75,11 @@ function startGame() {
         matchCards();
     }, false);
   }
+
+  // start Timer
+  deck.addEventListener("click", function( event ) {
+    setInterval(startTimer, 1000);
+  }, {once: true});
 }
 
 function matchCards() {
@@ -104,17 +107,14 @@ function matchCards() {
     }
 }
 
-function setDate() {
-  const timerSeconds = document.querySelector('.timer-seconds');
+function startTimer() {
+  var timerSeconds = document.querySelector('.timer-seconds');
   var now = new Date();
 
   var seconds = now.getSeconds();
   var secondsCount = ((seconds / 60) * 360) + 90;
   timerSeconds.innerHTML = timeCount++;
 }
-
-setInterval(setDate, 1000);
-
 
 function repeat() {
   var faRepeat = document.querySelector(".fa-repeat");
