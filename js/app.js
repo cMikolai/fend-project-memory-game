@@ -82,7 +82,7 @@ function startGame() {
 
   // start Timer
   deck.addEventListener("click", function( event ) {
-    setInterval(startTimer, 1000);
+    timerID = setInterval(startTimer, 1000);
   }, {once: true});
 }
 
@@ -122,6 +122,10 @@ function startTimer() {
   timerSeconds.innerHTML = timeCount++;
 }
 
+function stopTimer() {
+  clearInterval(timerID);
+}
+
 function starRating() {
   if (moveCount === 20) {
     document.querySelector(".third-star").style.display ="none";
@@ -142,7 +146,6 @@ function repeat() {
   faRepeat.addEventListener("click", function( event ) {
     moveCount = 0;
     moves.innerHTML = moveCount;
-    timeCount = 0;
     document.querySelector(".overlay").style.display ="none";
     document.querySelector(".first-star").style.display ="initial";
     document.querySelector(".first-star2").style.display ="initial";
@@ -155,6 +158,9 @@ function repeat() {
       deck.removeChild(oldCards);
     }
     gameSetup();
+    stopTimer();
+    timeCount = 0;
+    timer.innerHTML = timeCount;
   }, false);
 }
 
@@ -164,7 +170,8 @@ function endGame() {
         moveScore = document.querySelector(".moves-overlay");
         moveScore.innerHTML = moveCount;
         var timerOverlay = document.querySelector(".timer-seconds-overlay");
-        timerOverlay.innerHTML = timeCount;
+        timerOverlay.innerHTML = timeCount -1;
+        stopTimer();
   }
 }
 
