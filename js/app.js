@@ -142,26 +142,28 @@ function starRating() {
 }
 
 function repeat() {
-  var faRepeat = document.querySelector(".fa-repeat");
-  faRepeat.addEventListener("click", function( event ) {
-    moveCount = 0;
-    moves.innerHTML = moveCount;
-    document.querySelector(".overlay").style.display ="none";
-    document.querySelector(".first-star").style.display ="initial";
-    document.querySelector(".first-star2").style.display ="initial";
-    document.querySelector(".second-star").style.display ="initial";
-    document.querySelector(".second-star2").style.display ="initial";
-    document.querySelector(".third-star").style.display ="initial";
-    document.querySelector(".third-star2").style.display ="initial";
-    for (var i = 0; i < cardList.length; i++) {
-      var oldCards = document.querySelector(".card");
-      deck.removeChild(oldCards);
-    }
-    gameSetup();
-    stopTimer();
-    timeCount = 0;
-    timer.innerHTML = timeCount;
-  }, false);
+  var faRepeat = document.querySelectorAll(".fa-repeat");
+  for (var i = 0; i < faRepeat.length; i++) {
+    faRepeat[i].addEventListener("click", function( event ) {
+      moveCount = 0;
+      moves.innerHTML = moveCount;
+      document.querySelector(".overlay").style.display ="none";
+      document.querySelector(".first-star").style.display ="initial";
+      document.querySelector(".first-star2").style.display ="initial";
+      document.querySelector(".second-star").style.display ="initial";
+      document.querySelector(".second-star2").style.display ="initial";
+      document.querySelector(".third-star").style.display ="initial";
+      document.querySelector(".third-star2").style.display ="initial";
+      for (var i = 0; i < cardList.length; i++) {
+        var oldCards = document.querySelector(".card");
+        deck.removeChild(oldCards);
+      }
+      gameSetup();
+      stopTimer();
+      timeCount = 0;
+      timer.innerHTML = timeCount;
+    }, false);
+  }
 }
 
 function endGame() {
