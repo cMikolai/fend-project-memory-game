@@ -7,7 +7,12 @@
 
 ## Instructions
 
-To play this game, clone or download this repository to your local machine, open index.html in your browser and have lots of fun!
+To play this game, clone or download this repository to your local machine and open index.html in your browser.
+
+Once your game is ready to play, click on the cards and find two of the same kind in order to win the game.
+The game is finished when you managed to find all 8 pairs of cards.
+
+The less moves you take to finish the game, the better your star rating gets!
 
 ## Contributing
 
