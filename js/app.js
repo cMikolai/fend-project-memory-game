@@ -23,14 +23,14 @@ function gameSetup() {
   var cards = shuffle(cardList);
 
   for (var i = 0; i < cards.length; i++) {
-  var card = document.createElement("li");
-  card.classList.add("card");
+    var card = document.createElement("li");
+    card.classList.add("card");
 
-  var cardIcon = document.createElement("i");
-  cardIcon.classList.add("fa", cards[i]);
+    var cardIcon = document.createElement("i");
+    cardIcon.classList.add("fa", cards[i]);
 
-  card.append(cardIcon);
-  deck.append(card);
+    card.append(cardIcon);
+    deck.append(card);
   }
 
   startGame();
@@ -78,10 +78,13 @@ function matchCards() {
   if (openCards.length === 2) {
     moveCount++;
     moves.innerHTML = moveCount;
+
       if (openCards[0] === openCards[1]) {
         matchedCards.push(openCards[0]);
         matchedCards.push(openCards[1]);
+
         var matchedCard = document.querySelectorAll(".open");
+
         for (var i = 0; i < matchedCards.length; i++) {
           matchedCard[i].classList.add("match");
           matchedCard[i].classList.remove("open", "show");
@@ -89,8 +92,10 @@ function matchCards() {
 
           endGame();
         }
+
       } else {
           var unMatchedCard = document.querySelectorAll(".open");
+
           setTimeout(function () {
             for (var i = 0; i < 2; i++) {
               unMatchedCard[i].classList.remove("open", "show");
