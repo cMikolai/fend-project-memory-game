@@ -150,7 +150,7 @@ function repeat() {
         var oldCards = document.querySelector(".card");
         deck.removeChild(oldCards);
       }
-      
+
       gameSetup();
       stopTimer();
       timeCount = 0;
