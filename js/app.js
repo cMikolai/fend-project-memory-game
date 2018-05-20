@@ -91,6 +91,12 @@ function matchCards() {
 
         var matchedCard = document.querySelectorAll(".open");
 
+        setTimeout(function () {
+          for (var i = 0; i < 16; i++) {
+            ignoreClick[i].classList.remove("ignore");
+          }
+        }, 500);
+
         for (var i = 0; i < matchedCards.length; i++) {
           matchedCard[i].classList.add("match");
           matchedCard[i].classList.remove("open", "show", "ignore");
@@ -141,9 +147,6 @@ function starRating() {
   } else if (moveCount === 30) {
     document.querySelector(".second-star").style.display ="none";
     document.querySelector(".second-star2").style.display ="none";
-  } else if (moveCount === 40) {
-    document.querySelector(".first-star").style.display ="none";
-    document.querySelector(".first-star2").style.display ="none";
   }
 }
 
@@ -156,8 +159,6 @@ function repeat() {
       moveCount = 0;
       moves.innerHTML = moveCount;
       document.querySelector(".overlay").style.display ="none";
-      document.querySelector(".first-star").style.display ="initial";
-      document.querySelector(".first-star2").style.display ="initial";
       document.querySelector(".second-star").style.display ="initial";
       document.querySelector(".second-star2").style.display ="initial";
       document.querySelector(".third-star").style.display ="initial";
