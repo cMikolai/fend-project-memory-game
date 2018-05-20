@@ -3,7 +3,12 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
+<<<<<<< HEAD
 * [Code Dependencies](#code-dependencies)
+||||||| merged common ancestors
+=======
+* [Code Dependencies](#code dependencies)
+>>>>>>> 71ffebc7334452ceabebf5f4c7d3246f59ed4eb3
 * [Contributing](#contributing)
 
 ## Instructions
