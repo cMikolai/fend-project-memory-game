@@ -163,6 +163,8 @@ function repeat() {
       document.querySelector(".third-star").style.display ="initial";
       document.querySelector(".third-star2").style.display ="initial";
 
+      openCards = [];
+
       for (var i = 0; i < cardList.length; i++) {
         var oldCards = document.querySelector(".card");
         deck.removeChild(oldCards);
