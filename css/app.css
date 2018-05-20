@@ -148,3 +148,7 @@ h1 {
  .timer-seconds-overlay {
    width: 100%;
  }
+
+ .ignore {
+   pointer-events: none;
+ }

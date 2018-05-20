@@ -75,9 +75,15 @@ function startGame() {
 
 // compares cards to match or unmatch them
 function matchCards() {
+  var ignoreClick = document.querySelectorAll(".card");
+
   if (openCards.length === 2) {
     moveCount++;
     moves.innerHTML = moveCount;
+
+    for (var i = 0; i < cardList.length; i++) {
+      ignoreClick[i].classList.add("ignore");
+    }
 
       if (openCards[0] === openCards[1]) {
         matchedCards.push(openCards[0]);
@@ -87,7 +93,7 @@ function matchCards() {
 
         for (var i = 0; i < matchedCards.length; i++) {
           matchedCard[i].classList.add("match");
-          matchedCard[i].classList.remove("open", "show");
+          matchedCard[i].classList.remove("open", "show", "ignore");
           openCards.pop();
 
           endGame();
@@ -95,6 +101,12 @@ function matchCards() {
 
       } else {
           var unMatchedCard = document.querySelectorAll(".open");
+
+          setTimeout(function () {
+            for (var i = 0; i < 16; i++) {
+              ignoreClick[i].classList.remove("ignore");
+            }
+          }, 500);
 
           setTimeout(function () {
             for (var i = 0; i < 2; i++) {
