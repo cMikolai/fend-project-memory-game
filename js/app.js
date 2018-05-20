@@ -60,7 +60,7 @@ function startGame() {
     clickedCard[i].addEventListener("click", function( event ) {
       this.classList.add("open", "show");
 
-      openCards.push(this.firstChild.getAttribute('class'));
+      openCards.push(this.firstChild.getAttribute("class"));
 
       matchCards();
       starRating();
