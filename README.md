@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
+* [Code Dependencies](#code-dependencies)
 * [Contributing](#contributing)
 
 ## Instructions
@@ -13,6 +14,13 @@ Once your game is ready to play, click on the cards and find two of the same kin
 The game is finished when you managed to find all 8 pairs of cards.
 
 The less moves you take to finish the game, the better your star rating gets!
+
+## Code Dependencies
+
+The app is built with the following code dependencies:
+
+1. Font Awesome
+2. Google Fonts
 
 ## Contributing
 
